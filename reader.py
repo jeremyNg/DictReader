@@ -24,9 +24,3 @@ class DictReader(DictReader):
             return d
 
     __next__ = next # For Python 3 compatibility
-
-if __name__ == "__main__":
-    with open("test_case.csv") as file:
-        reader = DictReader(file, delimiter = ",", restval = None)
-        contents = list(reader)
-        print (contents)
