@@ -1,6 +1,7 @@
 from csv import DictReader
 
-class DictReader(DictReader):
+class DictReaderCustom(DictReader):
+
     def next(self):
         """
         This is to overload the next() function in Python 2.7 called by __iter__
@@ -13,7 +14,7 @@ class DictReader(DictReader):
         self.line_num = self.reader.line_num
         while self.line_num: # As compared to while self.row == []
             row = next(self.reader)
-            d = dict(zip(self.fieldnames, [x if x else self.restval for x in row]))
+            d = dict(zip(self.fieldnames, [x if x else self.default for x in row]))
             lf = len(self.fieldnames)
             lr = len(row)
             if lf < lr:

@@ -5,7 +5,7 @@ from reader import *
 class Test_Reader_Class(unittest.TestCase):
     def test_reader_class(self):
         with open("test_case.csv") as file:
-            reader = DictReader(file, delimiter = ",", restval = "A")
+            reader = DictReaderCustom(file, delimiter = ",")
             contents = list(reader)
         try:
             self.assertCountEqual(contents,
